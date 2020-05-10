@@ -5,17 +5,11 @@
   "targets": {
     "pour-over-guides": {
       "hosting": {
-        "dashboard": [
-          "pouroverguides-dashboard"
-        ],
-        "website": [
+        "production": [
           "pour-over-guides"
         ],
-        "staging-website": [
+        "staging": [
           "staging-pouroverguides"
-        ],
-        "staging-dashboard": [
-          "staging-dashboard-guides"
         ]
       }
     }
