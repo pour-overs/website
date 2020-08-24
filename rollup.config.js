@@ -6,6 +6,7 @@ import babel from 'rollup-plugin-babel';
 import { terser } from 'rollup-plugin-terser';
 import config from 'sapper/config/rollup.js';
 import pkg from './package.json';
+import alias from '@rollup/plugin-alias';
 
 const mode = process.env.NODE_ENV;
 const dev = mode === 'development';
@@ -13,11 +14,25 @@ const legacy = !!process.env.SAPPER_LEGACY_BUILD;
 
 const onwarn = (warning, onwarn) => (warning.code === 'CIRCULAR_DEPENDENCY' && /[/\\]@sapper[/\\]/.test(warning.message)) || onwarn(warning);
 
+
+// the locations we can import from
+const entries = [
+  { find: "@routes", replacement: `${__dirname}/src/routes`},
+  { find: "@components", replacement: `${__dirname}/src/components`},
+  { find: "@icons", replacement: `${__dirname}/src/icons`},
+  { find: "@services", replacement: `${__dirname}/src/services`},
+  { find: "@stores", replacement: `${__dirname}/src/stores`},
+  { find: "@providers", replacement: `${__dirname}/src/providers`},
+  { find: "@utils", replacement: `${__dirname}/src/utils.js`},
+];
+
+
 export default {
   client: {
     input: config.client.input(),
     output: config.client.output(),
     plugins: [
+      alias({ entries, }),
       replace({
         'process.browser': true,
         'process.env.NODE_ENV': JSON.stringify(mode)
@@ -62,6 +77,7 @@ export default {
     input: config.server.input(),
     output: config.server.output(),
     plugins: [
+      alias({ entries, }),
       replace({
         'process.browser': false,
         'process.env.NODE_ENV': JSON.stringify(mode)
