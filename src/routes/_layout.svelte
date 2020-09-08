@@ -1,14 +1,14 @@
 <script>
-	import Nav from '../components/Nav.svelte';
-	export let segment;
+  import Nav from '../components/Nav.svelte';
+  export let segment;
 </script>
 
 <style>
-	main {}
+  main {}
 </style>
 
 <Nav {segment}/>
 
 <main>
-	<slot></slot>
+  <slot></slot>
 </main>
