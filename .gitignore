@@ -7,3 +7,4 @@ yarn-error.log
 /public/
 firebase-admin-service-key.json
 .env
+firebase-debug.log
