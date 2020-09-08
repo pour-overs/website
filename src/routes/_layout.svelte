@@ -1,32 +1,14 @@
 <script>
 	import Nav from '../components/Nav.svelte';
-
+	export let segment;
 </script>
 
 <style>
-
-	.coming-soon {
-		display: flex;
-		flex-flow: column wrap;
-		height: 50vh;
-		align-items: center;
-		justify-content: center;
-	}
-
-	h1 {
-		text-transform: uppercase;
-		color: #678;
-		font-size: 1.4rem;
-		font-weight: 200;
-		font-family: "Roboto", sans-serif;
-	}
+	main {}
 </style>
 
-<div class="coming-soon">
-	<h1>Coming Soon</h1>
-</div>
-<!-- <Nav {segment}/>
+<Nav {segment}/>
 
 <main>
 	<slot></slot>
-</main> -->
+</main>

@@ -8,3 +8,4 @@ yarn-error.log
 firebase-admin-service-key.json
 .env
 firebase-debug.log
+.firebase/
