@@ -28,13 +28,16 @@
 
 </style>
 
-<h1>Sitemap</h1>
+<h1>Guides</h1>
 
 <nav>
   <ul>
     {#each guides as guide}
       <li class:muted={!guide.isPublished}>
-        <a href={`/guide/${guide.slug}`}>{guide.title}</a>
+        <a href={guide.slug.length > 1 ? `/guide/${guide.slug}` : null}>{guide.title}</a>
+        {#if guide.slug.length <= 1}
+          (<span>No slug</span>)
+        {/if}
       </li>
     {:else}
       <li>
