@@ -4,7 +4,11 @@
 </script>
 
 <style>
-  main {}
+  main {
+    max-width: 56em;
+    margin: auto auto;
+    padding: 2rem 2rem;
+  }
 </style>
 
 <Nav {segment}/>

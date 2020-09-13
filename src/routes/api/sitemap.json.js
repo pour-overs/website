@@ -4,5 +4,5 @@ export async function get(req, res) {
 
   const guides = await listGuides();
 
-  return res.json(guides || []);
+  return res.json({ guides, });
 }
