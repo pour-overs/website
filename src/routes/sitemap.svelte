@@ -26,12 +26,6 @@
     opacity: 0.5;
   }
 
-  nav ul {
-    list-style: none;
-    padding: 0 0;
-    margin: 0 0;
-  }
-
 </style>
 
 <h1>Sitemap</h1>
