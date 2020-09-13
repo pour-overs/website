@@ -40,7 +40,7 @@
   <ul>
     {#each sitemap.guides as guide}
       <li class:muted={!guide.isPublished}>
-        <a href={`/guides/${guide.slug}`}>{guide.title}</a>
+        <a href={`/guide/${guide.slug}`}>{guide.title}</a>
       </li>
     {:else}
       <li>
