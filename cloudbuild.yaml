@@ -6,4 +6,4 @@ steps:
     entrypoint: npm
     args: ['run', 'export']
   - name: gcr.io/pour-over-guides/firebase
-    args: ['deploy', '--project=$_FIREBASE_PROJECT_ID', '--only=hosting']
+    args: ['deploy', '--project=$_FIREBASE_PROJECT_ID', '--only=hosting', '--token="$_FIREBASE_CI_TOKEN"']
