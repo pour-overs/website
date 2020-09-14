@@ -7,5 +7,5 @@ steps:
     args: ['run', 'export']
   - name: gcr.io/pour-over-guides/firebase
     env: 
-      - 'FIREBASE_TOKEN="$_FIREBASE_CI_TOKEN"'
+      - 'FIREBASE_TOKEN=$_FIREBASE_CI_TOKEN'
     args: ['deploy', '--project=$_FIREBASE_PROJECT_ID', '--only=hosting:$_FIREBASE_DEPLOY_TARGET']
