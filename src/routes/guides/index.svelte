@@ -17,7 +17,7 @@
 
 <script>
 
-  export let guides;
+  export let guides = [];
 
 </script>
 
