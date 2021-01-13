@@ -1,1 +1,1 @@
-export const title = "Pour Over Guides";
+export const title = "Bloom & Pour";

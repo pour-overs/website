@@ -8,7 +8,7 @@
       <a href="/sitemap">Sitemap</a>
     </li>
     <li>
-      <a href="https://dashboard.pouroverguides.com" {target}>Dashboard</a>
+      <a href="https://dashboard.bloomandpour.com" {target}>Dashboard</a>
     </li>
   </ul>
 </nav>
