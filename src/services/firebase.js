@@ -1,5 +1,5 @@
 import * as admin from 'firebase-admin';
-import { firebaseConfig } from "@config/firebase.config";
+import { firebaseConfig } from "@config/firebase.config.js";
 const { databaseURL } = firebaseConfig;
 
 admin.initializeApp({
