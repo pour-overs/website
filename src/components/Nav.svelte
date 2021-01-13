@@ -1,5 +1,6 @@
 <script>
   export let segment;
+  import { title } from "@config/app.config.js";
 </script>
 
 <style>
@@ -40,7 +41,7 @@
 </style>
 
 <nav>
-  <div class="logo">Pour Over Guides</div>
+  <div class="logo">{title}</div>
   <ul class="nav-items">
     <li>
       <a aria-current={segment === undefined ? 'page' : undefined} href=".">

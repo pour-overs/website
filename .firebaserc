@@ -1,12 +1,12 @@
 {
   "projects": {
-    "default": "pour-over-guides"
+    "default": "bloomandpour"
   },
   "targets": {
-    "pour-over-guides": {
+    "bloomandpour": {
       "hosting": {
         "production": [
-          "pour-over-guides"
+          "bloomandpour"
         ],
         "staging": [
           "staging-pouroverguides"
