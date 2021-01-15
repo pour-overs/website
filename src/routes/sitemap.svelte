@@ -4,12 +4,8 @@
 
     const displayUnpublished = true;
 
-    const res = await this.fetch(`/api/sitemap.json`);
+    const res = await this.fetch(`/api/sitemap.json?publishedOnly=${displayUnpublished}`);
     const sitemap = await res.json();
-
-    if (!displayUnpublished) {
-      sitemap.guides = sitemap.guides.filter( guide => guide.isPublished);
-    }
 
     return { sitemap };
   }
