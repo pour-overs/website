@@ -7,6 +7,7 @@
   .logo {
     text-align: center;
     padding: 1em 2em;
+    font-weight: 600;
   }
 
   .nav-items {
