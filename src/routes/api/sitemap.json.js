@@ -3,12 +3,12 @@ import { listAllWikiPages } from "@services/wikis.js"
 
 export async function get(req, res) {
 
-  const publishedOnly = req.params.publishedOnly === "true";
+  const showAll = "showAll" in req.query;
 
   let guides = await listGuides();
   let wikis = await listAllWikiPages();
   
-  if (publishedOnly) {
+  if (!showAll) {
     guides = guides.filter( guide => guide.isPublished);
     wikis = wikis.filter( wiki => wiki.isPublished)
   }
