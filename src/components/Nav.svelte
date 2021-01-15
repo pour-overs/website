@@ -1,6 +1,11 @@
 <script>
   export let segment;
   import { title } from "@config/app.config.js";
+  import routes from "@config/nav.config.js";
+
+  const defaultSegment = routes[0].segment;
+  const landingPageSegment = ".";
+  const isActive = (current, route) => current === route;
 </script>
 
 <style>
@@ -42,26 +47,16 @@
 </style>
 
 <nav>
-  <div class="logo">{title}</div>
-  <ul class="nav-items">
-    <li>
-      <a aria-current={segment === undefined ? 'page' : undefined} href=".">
-        Home
-      </a>
-    </li>
-    <li>
-      <a aria-current={segment === 'about' ? 'page' : undefined} href="about">
-        About
-      </a>
-    </li>
-    <li>
-      <a aria-current={segment === 'guides' ? 'page' : undefined} href="guides">
-        Guides
-      </a>
-    </li>
-
-    <!-- for the blog link, we're using rel=prefetch so that Sapper prefetches
-         the blog data when we hover over the link or tap it on a touchscreen -->
-    <!-- <li><a rel=prefetch aria-current='{segment === "blog" ? "page" : undefined}' href='blog'>blog</a></li> -->
-  </ul>
+  <a href={landingPageSegment} class="logo">{title}</a>
+    <ul class="nav-items">
+      {#key segment}
+        {#each routes as route}
+          <li>
+            <a aria-current={isActive(segment || landingPageSegment, route.segment) ? 'page' : undefined} href={route.segment}>
+              {route.label}
+            </a>
+          </li>
+        {/each}
+      {/key}
+    </ul>
 </nav>
