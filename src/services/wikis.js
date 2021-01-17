@@ -18,6 +18,20 @@ export async function getByID(id) {
   return document.data();
 }
 
+export async function getBySlug(slug) {
+    const query = await wikiRef
+      .where("slug", "==", slug)
+      .get();
+  
+    if (query.empty) {
+      return null;
+    }
+
+    const document = query.docs[0];
+
+    return document.data()
+  }
+
 export async function listAllWikiPages() {
   const snapshot = await wikiRef.get();
   return snapshot.docs.map(doc => doc.data());
