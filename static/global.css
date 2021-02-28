@@ -2,6 +2,7 @@ body {
   --color1: #000;
   --color2: #bac5cc;
 
+  --content-container-width: 56em;
   --body-color: var(--color1);
   --body-bg: #fff;
 }

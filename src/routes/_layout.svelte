@@ -1,22 +1,24 @@
 <script>
   import Nav from "@components/Nav.svelte";
   import Footer from "@components/Footer.svelte";
+  import ContentLayout from "@components/layouts/ContentLayout.svelte";
   export let segment;
 </script>
 
 <style>
   main {
-    max-width: 56em;
-    margin: auto auto;
-    padding: 2rem 2rem;
     min-height: 90vh;
   }
 </style>
 
-<Nav {segment}/>
+<Nav {segment} />
 
-<main>
-  <slot></slot>
-</main>
+<ContentLayout>
 
-<Footer />
+  <main>
+    <slot />
+  </main>
+
+  <Footer />
+
+</ContentLayout>
