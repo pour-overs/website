@@ -20,5 +20,5 @@
 <h1>{wiki.title}</h1>
 
 <article>
-    {@html wiki.content}
+    {@html wiki.html}
 </article>

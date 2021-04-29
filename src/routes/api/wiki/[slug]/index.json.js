@@ -1,4 +1,5 @@
-import { getBySlug } from "@services/wikis.js"
+import { getBySlug } from "@services/wikis.js";
+import marked from "marked";
 
 export async function get(req, res) {
 
@@ -10,6 +11,9 @@ export async function get(req, res) {
     res.statusCode = 404;
     return res.end();
   }
+
+  wiki.html = marked(wiki.content || "");
+
 
   return res.json(wiki);
 }
