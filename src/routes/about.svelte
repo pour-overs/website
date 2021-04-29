@@ -1,7 +1,14 @@
-<svelte:head>
-	<title>About</title>
-</svelte:head>
+<script>
+	import PageTitle from "@components/PageTitle.svelte";
+	const title = `About`;
+</script>
 
-<h1>About this site</h1>
+<PageTitle {title} />
 
-<p>This is the 'about' page. There's not much here.</p>
+<h1>{title}</h1>
+
+<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio porro laudantium vel odit ipsam commodi animi repudiandae, quaerat dignissimos repellat earum ipsa quidem adipisci in, ex, recusandae iste quasi possimus!</p>
+
+<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio porro laudantium vel odit ipsam commodi animi repudiandae, quaerat dignissimos repellat earum ipsa quidem adipisci in, ex, recusandae iste quasi possimus!</p>
+
+<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio porro laudantium vel odit ipsam commodi animi repudiandae, quaerat dignissimos repellat earum ipsa quidem adipisci in, ex, recusandae iste quasi possimus!</p>

@@ -1,7 +1,7 @@
 <style>
   .container {
 
-    max-width: clamp(500px, 100%, 90vw);
+    max-width: var(--content-container-width);
     margin: auto auto;
     padding: 2rem 2rem;
   }

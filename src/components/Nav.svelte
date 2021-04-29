@@ -23,9 +23,12 @@
 
 <style>
 
+
   nav {
-    background-color: var(--color2);
-    color: #000;
+    background-color: var(--body-bg);
+    border-bottom: 1px solid #f2f2f2;
+    background-color: var(--body-bg);
+    color: var(--body-color);
   }
 
   nav.open {
@@ -33,6 +36,12 @@
     width: 100%;
     height: 100vh;
     overflow-y: auto;
+    background-color: var(--accent-bg-color);
+    color: var(--accent-text-color);
+  }
+
+  .container {
+    width: 100%;
   }
 
   header {
@@ -43,7 +52,6 @@
   }
 
   .logo {
-    /* font-weight: 600; */
     padding: 0.5rem 1rem;
   }
 
@@ -53,6 +61,10 @@
     border: 1px solid transparent;
   }
 
+  nav.open .toggle-menu {
+    color: var(--accent-text-color);
+  }
+
   .nav-items {
     display: none;
   }
@@ -60,8 +72,6 @@
   .open .nav-items {
     display: block;
   }
-
-
 
   [aria-current] {
     position: relative;
@@ -88,12 +98,19 @@
   @media screen and (min-width: 40rem) {
 
     nav {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
       padding: 1em 0rem;
       position: sticky;
       top: 0rem;
       z-index: 2;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      width: 100%;
+      padding: 0 2rem;
+      max-width: var(--content-container-width);
+      margin: auto auto;
     }
 
     header {
@@ -118,10 +135,15 @@
     padding: 0.5rem 1rem;
   }
 
+  a.logo {
+    margin-left: -1rem; /* align to left */
+  }
+
   }
 </style>
 
 <nav class:open={isOpen}>
+  <div class="container">
     <header>
       <button type="button" aria-labelledby="Toggle Navigation Menu" class="toggle-menu" on:click|preventDefault={toggle}>
         <Icon name={ isOpen ? "close" : "menu"} />
@@ -139,4 +161,5 @@
         {/each}
       {/key}
     </ul>
+  </div>
 </nav>

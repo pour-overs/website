@@ -2,7 +2,7 @@
   // https://material.io/resources/icons/
     // precedence: defaults
   let _size = 24;
-  let _color = "var(--body-color)";
+  let _color = "inherit";
 
   // precedence: use passed-in as final override
   export let name;

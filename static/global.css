@@ -1,10 +1,18 @@
-body {
+html {
   --color1: #000;
   --color2: #bac5cc;
 
-  --content-container-width: 56em;
+  --accent-bg-color: #be8383;
+  --accent-text-color: #fff;
+
   --body-color: var(--color1);
   --body-bg: #fff;
+  
+  --mobile-screens: 100%;
+  --laptop-screens: clamp(32rem, 100%, 60rem);
+  --desktop-screens: clamp(48rem, 100%, 60vw);
+  
+  --content-container-width: var(--mobile-screens);
 }
 
 body {
@@ -50,5 +58,21 @@ code {
 @media (min-width: 400px) {
   body {
     font-size: 16px;
+  }
+}
+
+@media (min-width: 40rem) {
+  html {
+    --content-container-width: var(--laptop-screens);
+  }
+}
+
+@media (min-width: 120rem) {
+  html {
+    --content-container-width: var(--desktop-screens);
+  }
+
+  body {
+    font-size: 0.85vw;
   }
 }

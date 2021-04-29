@@ -1,3 +1,7 @@
+<script context="module">
+  import PageTitle from "@components/PageTitle.svelte";
+</script>
+
 <script>
   import Nav from "@components/Nav.svelte";
   import Footer from "@components/Footer.svelte";
@@ -7,10 +11,11 @@
 
 <style>
   main {
-    min-height: 90vh;
+    min-height: 85vh;
   }
 </style>
 
+<PageTitle />
 <Nav {segment} />
 
 <ContentLayout>

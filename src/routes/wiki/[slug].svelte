@@ -11,10 +11,11 @@
 </script>
 
 <script>
-
+  import PageTitle from "@components/PageTitle.svelte";
   export let wiki;
-
 </script>
+
+<PageTitle title={wiki.title} />
 
 <h1>{wiki.title}</h1>
 
