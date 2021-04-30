@@ -6,7 +6,7 @@
     "dev": "cross-env GOOGLE_APPLICATION_CREDENTIALS=firebase-admin-service-key.json sapper dev",
     "dev:node": "cross-env GOOGLE_APPLICATION_CREDENTIALS=firebase-admin-service-key.json node --inspect node_modules/sapper/dist/cli.js dev",
     "build": "cross-env GOOGLE_APPLICATION_CREDENTIALS=firebase-admin-service-key.json sapper build --legacy",
-    "export": "cross-env GOOGLE_APPLICATION_CREDENTIALS=firebase-admin-service-key.json sapper export public/ --legacy",
+    "export": "sapper export public/ --legacy",
     "start": "node __sapper__/build",
     "cy:run": "cypress run",
     "cy:open": "cypress open",
