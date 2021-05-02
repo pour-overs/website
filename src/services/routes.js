@@ -11,5 +11,9 @@ export const getWikiURL = (wiki) => {
         console.warn(`"${wiki.title}" is missing a slug`);
         return "";
     }
-    return `/wiki/${wiki.slug}`;
+    if (!wiki.topic || wiki.topic === "root") {
+        return `/wiki/${wiki.slug}`;
+    }
+
+    return `/wiki/${wiki.topic}/${wiki.slug}`;
 }

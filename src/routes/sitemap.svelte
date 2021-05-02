@@ -15,6 +15,8 @@
 </script>
 
 <script>
+
+  import { getWikiURL } from "@services/routes.js";
   export let wikis;
   export let guides;
 
@@ -36,7 +38,10 @@
 <nav>
   <ul>
     {#each guides as guide}
-      <li class:muted={!guide.isPublished}>
+      <li>
+        {#if !guide.isPublished}
+          unpublished:
+        {/if}
         <a href={`/guide/${guide.slug}`}>{guide.title}</a>
       </li>
     {:else}
@@ -51,8 +56,11 @@
 <nav>
   <ul>
     {#each wikis as wiki}
-      <li class:muted={!wiki.isPublished}>
-        <a href={`/wiki/${wiki.slug}`}>{wiki.title}</a>
+      <li>
+        {#if !wiki.isPublished}
+          unpublished:
+        {/if}
+        <a href={getWikiURL(wiki)}>{wiki.title}</a>
       </li>
     {:else}
       <li>

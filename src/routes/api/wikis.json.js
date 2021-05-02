@@ -1,14 +1,10 @@
-import { listAllWikiPages } from "@services/wikis.js"
+import { listWikisByTopic } from "@services/wikis.js"
 
 export async function get(req, res) {
 
   const showAll = "showAll" in req.query;
 
-  let wikis = await listAllWikiPages();
-  
-  if (!showAll) {
-    wikis = wikis.filter( wiki => wiki.isPublished)
-  }
+  const wikis = await listWikisByTopic(showAll);
 
   return res.json(wikis);
 }

@@ -5,15 +5,22 @@
     const showAll = "showAll" in page.query;
 
     const res = await this.fetch(`/api/wikis.json${showAll ? "?showAll" : ""}`);
-    let wikis = await res.json();
+    const byTopic = await res.json();
 
-    return { wikis };
+    const wikis = byTopic[""] || [];
+
+    delete byTopic[""];
+
+    return { byTopic, wikis };
   }
 </script>
 
 <script>
+
   import { getWikiURL } from "@services/routes.js";
   export let wikis = [];
+  export let byTopic = {};
+  let hasAny = [...wikis, ...Object.values(byTopic)].length > 0;
 
 </script>
 
@@ -22,20 +29,36 @@
     opacity: 0.5;
   }
 
+  ul {
+    margin-bottom: 2rem;
+  }
+
 </style>
 
-<h1>Wikis</h1>
+<h1>Wiki</h1>
 
 <nav>
-  <ul>
-    {#each wikis as wiki}
-      <li class:muted={!wiki.isPublished}>
-        <a href={getWikiURL(wiki)}>{wiki.title}</a>
-      </li>
-    {:else}
-      <li>
-        <p>There are no published Wikis yet. Come back soon!</p>
-      </li>
+  {#if hasAny}
+    <ul>
+      {#each wikis as wiki}
+        <li class:muted={!wiki.isPublished}>
+          <a href={getWikiURL(wiki)}>{wiki.title}</a>
+        </li>
+      {/each}
+    </ul>
+
+    {#each Object.keys(byTopic) as topic}
+      <h4>{topic}</h4>
+      <ul>
+        {#each byTopic[topic] as wiki}
+          <li class:muted={!wiki.isPublished}>
+            <a href={getWikiURL(wiki)}>{wiki.title}</a>
+          </li>
+          {/each}
+      </ul>
     {/each}
-  </ul>
+  {:else}
+    <p>There are no published Wikis yet. Come back soon!</p>
+  {/if}
+
 </nav>
